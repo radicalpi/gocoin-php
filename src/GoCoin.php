@@ -1,4 +1,7 @@
 <?php
+
+namespace GoCoin;
+
 if ( !defined('__DIR__') ) define('__DIR__', dirname(__FILE__));
 /**
  * GoCoin Api
@@ -441,11 +444,11 @@ function GoCoinAutoload($class_name)
 
 if (version_compare(PHP_VERSION, '5.3.0', '>='))
 {
-  spl_autoload_register('GoCoinAutoload', TRUE, TRUE);
+  spl_autoload_register('GoCoin\GoCoinAutoload', TRUE, TRUE);
 }
 else
 {
-  spl_autoload_register('GoCoinAutoload');
+  spl_autoload_register('GoCoin\GoCoinAutoload');
 }
 
 

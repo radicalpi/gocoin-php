@@ -1,5 +1,7 @@
 <?php
 
+namespace GoCoin;
+
 /**
  * Merchant Class
  *

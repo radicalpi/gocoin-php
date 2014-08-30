@@ -1,5 +1,7 @@
 <?php
 
+namespace GoCoin;
+
 /**
  * GoCoin Api
  * A PHP-based GoCoin client library with a focus on simplicity and ease of integration

@@ -1,5 +1,7 @@
 <?php
 
+namespace GoCoin;
+
 /**
  * User Class
  *

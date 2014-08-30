@@ -1,5 +1,7 @@
 <?php
 
+namespace GoCoin;
+
 /**
  * GoCoin Api  Auth class
  * include functions related with authentication

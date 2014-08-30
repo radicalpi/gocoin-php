@@ -1,4 +1,7 @@
 <?php
+
+namespace GoCoin;
+
 if ( !defined('__DIR__') ) define('__DIR__', dirname(__FILE__)); //5.2.x compatibility
 /**
  * GoCoin Api

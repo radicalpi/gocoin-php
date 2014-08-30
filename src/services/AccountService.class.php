@@ -1,5 +1,7 @@
 <?php
 
+namespace GoCoin;
+
 /**
  * Account Class
  *
