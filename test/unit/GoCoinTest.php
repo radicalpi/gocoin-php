@@ -1,5 +1,7 @@
 <?php
 
+use GoCoin\GoCoin;
+
 class GoCoinTest extends PHPUnit_Framework_TestCase
 {
   const EXPECTED_LIBRARY_VERSION = '0.6';

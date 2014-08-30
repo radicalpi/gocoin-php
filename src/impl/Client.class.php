@@ -554,7 +554,7 @@ class Client
     $result = json_decode($result);
     if (isset($result -> error))
     {
-      throw new Exception($result -> error_description);
+      throw new \Exception($result -> error_description);
     }
     return $result;
   }

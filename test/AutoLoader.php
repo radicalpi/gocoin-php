@@ -1,6 +1,7 @@
 <?php
   class AutoLoader
   {
+    static private $namespace = 'GoCoin\\';
     static private $classNames = array();
 
     /**
@@ -26,7 +27,7 @@
             $className = substr($className, 0, -6);
           }
 //echo "Registering for auto load: [$className][" . $file->getPathname() . "]\n";
-          AutoLoader::registerClass($className, $file->getPathname());
+          AutoLoader::registerClass(self::$namespace . $className, $file->getPathname());
         }
       }
     }

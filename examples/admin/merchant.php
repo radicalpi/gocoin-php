@@ -1,5 +1,8 @@
 <?php
 
+use GoCoin\GoCoin;
+use GoCoin\GoCoinAdmin;
+
 ini_set('display_errors', 1);
 
 //include the config and the gocoin api

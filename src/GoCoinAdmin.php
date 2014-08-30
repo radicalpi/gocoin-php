@@ -27,7 +27,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $user = $client -> api -> user -> getUsers();
-    if (!$user) { throw new Exception($client -> getError()); }
+    if (!$user) { throw new \Exception($client -> getError()); }
     else        { return $user; }
   }
 
@@ -38,7 +38,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $user = $client -> api -> user -> createUser($user);
-    if (!$user) { throw new Exception($client -> getError()); }
+    if (!$user) { throw new \Exception($client -> getError()); }
     else        { return $user; }
   }
 
@@ -49,7 +49,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $user = $client -> api -> user -> deleteUser($id);
-    if (!$user) { throw new Exception($client -> getError()); }
+    if (!$user) { throw new \Exception($client -> getError()); }
     else        { return $user; }
   }
 
@@ -69,7 +69,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $merchants = $client -> api -> merchant -> listMerchants();
-    if (!$merchants)  { throw new Exception($client -> getError()); }
+    if (!$merchants)  { throw new \Exception($client -> getError()); }
     else              { return $merchants; }
   }
 
@@ -81,7 +81,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $merchant = $client -> api -> merchant -> createMerchant($merchant);
-    if (!$merchant) { throw new Exception($client -> getError()); }
+    if (!$merchant) { throw new \Exception($client -> getError()); }
     else            { return $merchant; }
   }
 
@@ -93,7 +93,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $merchant = $client -> api -> merchant -> deleteMerchant($id);
-    if (!$merchant) { throw new Exception($client -> getError()); }
+    if (!$merchant) { throw new \Exception($client -> getError()); }
     else            { return $merchant; }
   }
 
@@ -121,7 +121,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $result = $client -> api -> merchant_users -> addMerchantUser($merchant_id,$user_id);
-    if ($result === FALSE) { throw new Exception($client -> getError()); }
+    if ($result === FALSE) { throw new \Exception($client -> getError()); }
     else                   { return $result; }
   }
 
@@ -132,7 +132,7 @@ class GoCoinAdmin
   {
     $client = Client::getInstance($token);
     $result = $client -> api -> merchant_users -> deleteMerchantUser($merchant_id,$user_id);
-    if ($result === FALSE) { throw new Exception($client -> getError()); }
+    if ($result === FALSE) { throw new \Exception($client -> getError()); }
     else                   { return $result; }
   }
 }

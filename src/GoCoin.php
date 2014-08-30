@@ -99,7 +99,7 @@ class GoCoin
     //authorize the api, ie: get a token
     if (!$client -> authorize_api($code))
     {
-      throw new Exception($client -> getError());
+      throw new \Exception($client -> getError());
     }
     return $client -> getToken();
   }
@@ -135,7 +135,7 @@ class GoCoin
     {
       $user = $client -> api -> user -> get($id);
     }
-    if (!$user) { throw new Exception($client -> getError()); }
+    if (!$user) { throw new \Exception($client -> getError()); }
     else        { return $user; }
   }
 
@@ -146,7 +146,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $user = $client -> api -> user -> updateUser($user);
-    if (!$user) { throw new Exception($client -> getError()); }
+    if (!$user) { throw new \Exception($client -> getError()); }
     else        { return $user; }
   }
 
@@ -157,7 +157,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $apps = $client -> api -> user -> getUserApplications($id);
-    if (!$apps) { throw new Exception($client -> getError()); }
+    if (!$apps) { throw new \Exception($client -> getError()); }
     else        { return $apps; }
   }
 
@@ -168,7 +168,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $result = $client -> api -> user -> updatePassword($id,$password_array);
-    if (!$result) { throw new Exception($client -> getError()); }
+    if (!$result) { throw new \Exception($client -> getError()); }
     else          { return $result; }
   }
 
@@ -179,7 +179,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $result = $client -> api -> user -> resetPassword($email);
-    if (!$result) { throw new Exception($client -> getError()); }
+    if (!$result) { throw new \Exception($client -> getError()); }
     else          { return $result; }
   }
 
@@ -190,7 +190,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $result = $client -> api -> user -> resetPasswordWithToken($id,$reset_token,$password_array);
-    if (!$result) { throw new Exception($client -> getError()); }
+    if (!$result) { throw new \Exception($client -> getError()); }
     else          { return $result; }
   }
 
@@ -201,7 +201,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $result = $client -> api -> user -> requestConfirmationEmail($email);
-    if (!$result) { throw new Exception($client -> getError()); }
+    if (!$result) { throw new \Exception($client -> getError()); }
     else          { return $result; }
   }
 
@@ -212,7 +212,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $result = $client -> api -> user -> confirmUser($id,$confirm_token);
-    if (!$result) { throw new Exception($client -> getError()); }
+    if (!$result) { throw new \Exception($client -> getError()); }
     else          { return $result; }
   }
 
@@ -231,7 +231,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $merchant = $client -> api -> merchant -> get($id);
-    if (!$merchant) { throw new Exception($client -> getError()); }
+    if (!$merchant) { throw new \Exception($client -> getError()); }
     else            { return $merchant; }
   }
 
@@ -242,7 +242,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $merchant = $client -> api -> merchant -> updateMerchant($merchant);
-    if (!$merchant) { throw new Exception($client -> getError()); }
+    if (!$merchant) { throw new \Exception($client -> getError()); }
     else            { return $merchant; }
   }
 
@@ -253,7 +253,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $payout = $client -> api -> merchant -> requestPayout($merchant_id,$amount,$currency);
-    if ($payout === FALSE) { throw new Exception($client -> getError()); }
+    if ($payout === FALSE) { throw new \Exception($client -> getError()); }
     else                   { return $payout; }
   }
 
@@ -264,7 +264,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $payouts = $client -> api -> merchant -> getMerchantPayouts($merchant_id,$payout_id);
-    if ($payouts === FALSE) { throw new Exception($client -> getError()); }
+    if ($payouts === FALSE) { throw new \Exception($client -> getError()); }
     else                    { return $payouts; }
   }
 
@@ -279,7 +279,7 @@ class GoCoin
     $conversion = $client -> api -> merchant -> requestCurrencyConversion(
       $merchant_id,$amount,$currency,$target
     );
-    if ($conversion === FALSE)  { throw new Exception($client -> getError()); }
+    if ($conversion === FALSE)  { throw new \Exception($client -> getError()); }
     else                        { return $conversion; }
   }
 
@@ -290,7 +290,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $conversions = $client -> api -> merchant -> getCurrencyConversions($merchant_id,$conversion_id);
-    if ($conversions === FALSE) { throw new Exception($client -> getError()); }
+    if ($conversions === FALSE) { throw new \Exception($client -> getError()); }
     else                        { return $conversions; }
   }
 
@@ -318,7 +318,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $users = $client -> api -> merchant_users -> getMerchantUsers($merchant_id);
-    if ($users === FALSE) { throw new Exception($client -> getError()); }
+    if ($users === FALSE) { throw new \Exception($client -> getError()); }
     else                  { return $users; }
   }
 
@@ -337,7 +337,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $invoice = $client -> api -> invoices -> createInvoice($merchant_id,$invoice);
-    if ($invoice === FALSE) { throw new Exception($client -> getError()); }
+    if ($invoice === FALSE) { throw new \Exception($client -> getError()); }
     else                    { return $invoice; }
   }
 
@@ -348,7 +348,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $invoice = $client -> api -> invoices -> getInvoice($id);
-    if ($invoice === FALSE) { throw new Exception($client -> getError()); }
+    if ($invoice === FALSE) { throw new \Exception($client -> getError()); }
     else                    { return $invoice; }
   }
 
@@ -359,7 +359,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $invoices = $client -> api -> invoices -> searchInvoices($criteria);
-    if ($invoices === FALSE)  { throw new Exception($client -> getError()); }
+    if ($invoices === FALSE)  { throw new \Exception($client -> getError()); }
     else                      { return $invoices; }
   }
 
@@ -378,7 +378,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $accounts = $client -> api -> accounts -> getAccounts($merchant_id);
-    if ($accounts === FALSE)  { throw new Exception($client -> getError()); }
+    if ($accounts === FALSE)  { throw new \Exception($client -> getError()); }
     else                      { return $accounts; }
   }
 
@@ -389,7 +389,7 @@ class GoCoin
   {
     $client = GoCoin::getClient($token);
     $xactions = $client -> api -> accounts -> getAccountTransactions($account_id,$criteria);
-    if ($xactions === FALSE)  { throw new Exception($client -> getError()); }
+    if ($xactions === FALSE)  { throw new \Exception($client -> getError()); }
     else                      { return $xactions; }
   }
 

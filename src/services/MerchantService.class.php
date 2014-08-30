@@ -57,8 +57,8 @@ class MerchantService
 
   public function updateMerchant($merchant)
   {
-    if (!is_array($merchant)) { throw new Exception("Invalid merchant object!"); }
-    if (!array_key_exists('id',$merchant)) { throw new Exception("Invalid merchant object: missing id!"); }
+    if (!is_array($merchant)) { throw new \Exception("Invalid merchant object!"); }
+    if (!array_key_exists('id',$merchant)) { throw new \Exception("Invalid merchant object: missing id!"); }
     $id = $merchant['id'];
     $route = "/merchants/" . $id;
     $options = array(

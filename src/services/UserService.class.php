@@ -50,8 +50,8 @@ class UserService
 
   public function updateUser($user)
   {
-    if (!is_array($user)) { throw new Exception("Invalid user object!"); }
-    if (!array_key_exists('id',$user)) { throw new Exception("Invalid user object: missing id!"); }
+    if (!is_array($user)) { throw new \Exception("Invalid user object!"); }
+    if (!array_key_exists('id',$user)) { throw new \Exception("Invalid user object: missing id!"); }
     $id = $user['id'];
     $route = "/users/" . $id;
     $options = array(
@@ -87,7 +87,7 @@ class UserService
 
   public function resetPassword($email)
   {
-    if (empty($email)) { throw new Exception("Invalid email!"); }
+    if (empty($email)) { throw new \Exception("Invalid email!"); }
     $route = '/users/request_password_reset';
     $options = array(
       'method' => 'POST',
@@ -99,8 +99,8 @@ class UserService
 
   public function resetPasswordWithToken($id,$reset_token,$password_array)
   {
-    if (empty($id)) { throw new Exception("Missing reset user id!"); }
-    if (empty($reset_token)) { throw new Exception("Missing reset token!"); }
+    if (empty($id)) { throw new \Exception("Missing reset user id!"); }
+    if (empty($reset_token)) { throw new \Exception("Missing reset token!"); }
     $route = '/users/' . $id . '/reset_password/' . $reset_token;
     $options = array(
       'method' => 'PATCH',
@@ -112,7 +112,7 @@ class UserService
 
   public function requestConfirmationEmail($email)
   {
-    if (empty($email)) { throw new Exception("Invalid email!"); }
+    if (empty($email)) { throw new \Exception("Invalid email!"); }
     $route = '/users/request_new_confirmation_email';
     $options = array(
       'method' => 'POST',
@@ -124,8 +124,8 @@ class UserService
 
   public function confirmUser($id,$confirm_token)
   {
-    if (empty($id)) { throw new Exception("Missing reset user id!"); }
-    if (empty($confirm_token)) { throw new Exception("Missing confirmation token!"); }
+    if (empty($id)) { throw new \Exception("Missing reset user id!"); }
+    if (empty($confirm_token)) { throw new \Exception("Missing confirmation token!"); }
     $route = '/users/' . $id . '/confirm_account/' . $confirm_token;
     $options = array(
       'method' => 'GET',
